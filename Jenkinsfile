@@ -7,20 +7,20 @@ pipeline {
                 sh "env"
                 sh "mvn test"
             }
+        }
+    }
 
-            post {
-                always {
-                    archiveArtifacts (
-                        artifacts: 'target/artifacts/**/*'
-                    )
-                    junit (
-                        'target/surefire-reports/*.xml'
-                    )
-                }
-                success {
-                    sh "echo yes!"
-                }
-            }
+    post {
+        always {
+            archiveArtifacts (
+                artifacts: 'target/artifacts/**/*'
+            )
+            junit (
+                'target/surefire-reports/*.xml'
+            )
+        }
+        success {
+            sh "echo yes!"
         }
     }
 }
