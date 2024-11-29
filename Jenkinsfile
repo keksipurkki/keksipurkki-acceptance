@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'maven:3-openjdk-17-slim' } }
+    agent { docker { image 'maven:3-eclipse-temurin-23-alpine' } }
 
     stages {
         stage("AcceptanceTest") {
